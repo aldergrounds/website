@@ -1,2 +1,29 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+  import ChangelogSection from "$lib/pages/landing-page/changelog.svelte";
+  import CommunitySection from "$lib/pages/landing-page/community.svelte";
+  import HomeSection from "$lib/pages/landing-page/home.svelte";
+  import KainureSection from "$lib/pages/landing-page/kainure.svelte";
+  import StatusSection from "$lib/pages/landing-page/status.svelte";
+</script>
+
+<main>
+  <section>
+    <HomeSection />
+  </section>
+
+  <section>
+    <ChangelogSection />
+  </section>
+
+  <section>
+    <KainureSection />
+  </section>
+
+  <section>
+    <StatusSection />
+  </section>
+
+  <section>
+    <CommunitySection />
+  </section>
+</main>
