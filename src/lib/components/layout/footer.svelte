@@ -16,7 +16,6 @@
       title: "Developers",
       items: [
         { label: "Documentation", href: "/docs" },
-        { label: "Kainure Framework", href: "/kainure" },
         { label: "GitHub", href: "https://github.com/aldergrounds" },
       ],
     },
@@ -40,8 +39,7 @@
                bg-clip-text text-transparent">Grounds</span>
         </h2>
         <p class="text-muted-foreground text-sm leading-relaxed">
-          A cross-platform multiplayer mod for Grand Theft Auto: San Andreas,
-          fully compatible with San Andreas Multiplayer (Legacy).
+          A cross-platform multiplayer mod for Grand Theft Auto: San Andreas.
         </p>
       </div>
 
@@ -88,6 +86,5 @@
         </span>
       </div>
     </div>
-
   </div>
 </div>

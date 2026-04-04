@@ -132,7 +132,7 @@
     <h1
       class="mt-5 animate-fade-in-up mb-4 text-5xl font-extrabold tracking-tight text-white sm:text-6xl cursor-default"
     >
-      Real-time Statistics
+      Statistics
     </h1>
     <p class="text-muted-foreground animate-fade-in-up max-w-2xl text-sm leading-relaxed sm:text-lg">
       Live numbers from the Aldergrounds network, updated every 15 seconds.

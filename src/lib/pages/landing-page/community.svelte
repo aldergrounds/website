@@ -12,6 +12,7 @@
     { username: "sant0zr", fallback: "S0" },
     { username: "LESS14", fallback: "LL" },
     { username: "Galarc", fallback: "GL" },
+    { username: "mad-cheski", fallback: "CH" },
   ];
 
   const extraCount = 12;

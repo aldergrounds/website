@@ -7,9 +7,8 @@
 
   const links = [
     { label: "Download", href: "/download" },
-    { label: "Changelog", href: "/changelog" },
-    { label: "Kainure", href: "/kainure" },
     { label: "Docs", href: "/docs" },
+    { label: "Servers", href: "/servers" },
   ];
 
   const socials = [

@@ -2,7 +2,7 @@
   import Github from "$lib/assets/icons/gh-logo.png";
   import Youtube from "$lib/assets/icons/yt-logo.png";
   import Discord from "$lib/assets/icons/dc-logo.png";
-    import Button from "$lib/components/ui/button/button.svelte";
+  import Button from "$lib/components/ui/button/button.svelte";
 </script>
 
 <div class="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-16 sm:py-24 lg:py-32">
@@ -26,8 +26,7 @@
       class="text-muted-foreground animate-fade-in-up animation-delay-200 mx-auto
              mb-10 max-w-2xl text-lg leading-relaxed sm:text-xl"
     >
-      A cross-platform multiplayer mod for Grand Theft Auto: San Andreas,
-      fully compatible with San Andreas Multiplayer (Legacy).
+      A cross-platform multiplayer mod for Grand Theft Auto: San Andreas.
     </p>
 
     <!-- CTA buttons -->
