@@ -23,7 +23,7 @@
         class="border border-primary hover:bg-primary duration-200 cursor-pointer px-10 h-12 font-pricedown text-lg flex items-center justify-center"
         style="clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);"
       >
-        DOWNLOAD AGORA
+        DOWNLOAD NOW
       </a>
 
       <a
