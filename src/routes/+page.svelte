@@ -5,7 +5,6 @@
   import HomeSection from "$lib/pages/landing-page/home.svelte";
   import HowItWorksSection from "$lib/pages/landing-page/how-it-works.svelte";
   import StatusSection from "$lib/pages/landing-page/status.svelte";
-  import TrailerSection from "$lib/pages/landing-page/trailer.svelte";
   import DevelopersSection from "$lib/pages/landing-page/developers.svelte";
   import CommunitySection from "$lib/pages/landing-page/community.svelte";
 </script>
@@ -17,10 +16,6 @@
 
   <section>
     <StatusSection />
-  </section>
-
-  <section>
-    <TrailerSection />
   </section>
 
   <section>
