@@ -1,4 +1,4 @@
-<div class="flex items-center justify-between fixed px-20 py-5 z-50 w-screen bg-muted-foreground/5">
+<div class="flex items-center justify-between fixed px-20 py-5 z-50 w-screen bg-muted-foreground/5 backdrop-blur-md">
   <div>
     <h1 class="font-pricedown text-xl">A<span class="text-primary">G</span></h1>
   </div>

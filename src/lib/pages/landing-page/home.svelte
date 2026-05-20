@@ -31,7 +31,7 @@
         class="border border-white/20 hover:border-white/40 duration-200 cursor-pointer px-8 h-12 font-pricedown text-lg flex items-center justify-center"
         style="clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);"
       >
-        VER SERVIDORES
+        VIEW SERVERS
       </a>
     </div>
 
