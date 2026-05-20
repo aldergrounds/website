@@ -81,7 +81,6 @@
               class="flex items-center gap-3 border border-white/5 bg-black/20 px-4 py-3"
               style="clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%)"
             >
-
               <div class="size-2 rounded-full bg-primary"></div>
 
               <span class="text-sm font-semibold text-zinc-300">
