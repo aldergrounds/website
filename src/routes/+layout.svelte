@@ -1,5 +1,6 @@
 <script lang="ts">
 	import './layout.css';
+	import '$lib/assets/fonts/fonts.css';
 	import favicon from '$lib/assets/favicon.svg';
   import FooterLandingPage from '$lib/components/layout/footer.svelte';
   import NavbarLandingPage from '$lib/components/layout/navbar.svelte';
