@@ -3,10 +3,11 @@
   import PreviewServersSection from "$lib/pages/landing-page/preview-servers.svelte";
   import FeaturesSection from "$lib/pages/landing-page/features.svelte";
   import HomeSection from "$lib/pages/landing-page/home.svelte";
-  import HowItWorksSection from "$lib/pages/landing-page/how-it-works.svelte";
+  import CollaboratorsSection from "$lib/pages/landing-page/collaborators.svelte";
   import StatusSection from "$lib/pages/landing-page/status.svelte";
   import DevelopersSection from "$lib/pages/landing-page/developers.svelte";
   import CommunitySection from "$lib/pages/landing-page/community.svelte";
+  import ChangelogSection from "$lib/pages/landing-page/changelog.svelte";
 </script>
 
 <main>
@@ -27,15 +28,19 @@
   </section>
 
   <section>
-    <HowItWorksSection />
-  </section>
-
-  <section>
     <PreviewServersSection />
   </section>
 
   <section>
+    <ChangelogSection />
+  </section>
+
+  <section>
     <DevelopersSection />
+  </section>
+
+  <section>
+    <CollaboratorsSection />
   </section>
 
   <section>
