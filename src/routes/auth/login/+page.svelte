@@ -1,22 +1,55 @@
-<div class="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-16">
+<script>
+  import Discord from "$lib/assets/icons/dc-logo.png";
+</script>
 
-  <div class="relative w-full max-w-sm">
+<div class="relative min-h-screen flex">
+  <div class="hidden lg:flex flex-col justify-between w-[420px] shrink-0 border-r border-white/10 bg-white/5 backdrop-blur-sm px-12 py-16">
+    <a href="/" class="font-pricedown text-2xl text-white tracking-tighter">
+      Alder<span class="bg-linear-to-r from-primary to-sky-700 bg-clip-text text-transparent">Grounds</span>
+    </a>
 
-    <div class="mb-8 text-center">
-      <h1 class="font-pricedown text-4xl tracking-tighter text-white mb-2">
-        Alder<span class="bg-linear-to-r from-primary to-sky-700 bg-clip-text text-transparent">Grounds</span>
-      </h1>
-      <p class="text-muted-foreground text-sm font-semibold">
-        Sign in to your account to continue.
-      </p>
+    <div class="flex flex-col gap-8">
+      <div class="flex flex-col gap-2">
+        <p class="text-muted-foreground text-xs font-semibold uppercase tracking-widest">Multiplayer mod for</p>
+        <h2 class="gta-title bg-primary text-white text-sm px-3 py-1.5 self-start">Grand Theft Auto: San Andreas.</h2>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-1 border-l-2 border-primary pl-4">
+          <span class="font-pricedown text-2xl text-white tracking-tighter">1.2K</span>
+          <span class="text-muted-foreground text-xs font-semibold">Players online right now</span>
+        </div>
+        <div class="flex flex-col gap-1 border-l border-white/10 pl-4">
+          <span class="font-pricedown text-2xl text-white tracking-tighter">48</span>
+          <span class="text-muted-foreground text-xs font-semibold">Active servers</span>
+        </div>
+        <div class="flex flex-col gap-1 border-l border-white/10 pl-4">
+          <span class="font-pricedown text-2xl text-white tracking-tighter">32K</span>
+          <span class="text-muted-foreground text-xs font-semibold">Total downloads</span>
+        </div>
+      </div>
     </div>
 
-    <div
-      class="border border-white/10 bg-white/5 backdrop-blur-sm p-8"
-      style="clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%)">
+    <p class="text-muted-foreground text-xs font-semibold">
+      © {new Date().getFullYear()} AlderGrounds. Not affiliated with Rockstar Games.
+    </p>
+  </div>
 
-      <form class="flex flex-col gap-5">
+  <div class="flex flex-1 items-center justify-center px-6 py-16">
+    <div class="w-full max-w-sm flex flex-col gap-0">
 
+      <div class="mb-8 lg:hidden text-center">
+        <h1 class="font-pricedown text-4xl tracking-tighter text-white mb-2">
+          Alder<span class="bg-linear-to-r from-primary to-sky-700 bg-clip-text text-transparent">Grounds</span>
+        </h1>
+      </div>
+
+      <div class="mb-8">
+        <h2 class="font-pricedown text-3xl tracking-tighter text-white mb-1">Welcome back</h2>
+        <p class="text-muted-foreground text-sm font-semibold">Sign in to your account to continue.</p>
+      </div>
+
+      <form class="flex flex-col gap-5 mb-6">
         <div class="flex flex-col gap-2">
           <label class="font-pricedown text-white text-sm tracking-tighter">Username</label>
           <input
@@ -48,31 +81,18 @@
           style="clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)">
           SIGN IN
         </button>
-
       </form>
 
-      <div class="mt-6 flex items-center gap-3">
+      <div class="flex items-center gap-3 mb-6">
         <div class="h-px flex-1 border-t border-white/10"></div>
         <span class="text-muted-foreground text-xs font-semibold">OR</span>
         <div class="h-px flex-1 border-t border-white/10"></div>
       </div>
 
-      <a
-        href="https://discord.gg/JR6X4v7VnS"
-        class="mt-6 flex items-center justify-center gap-3 border border-white/10 bg-white/5 hover:border-primary/40 hover:bg-white/8 duration-200 cursor-pointer h-10 font-semibold text-white text-sm w-full"
-        style="clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)">
-        Continue with Discord
-      </a>
-
+      <p class="text-center text-sm text-muted-foreground font-semibold">
+        Don't have an account?
+        <a href="/auth/register" class="text-primary hover:text-primary/80 duration-200">Sign up</a>
+      </p>
     </div>
-
-    <p class="mt-6 text-center text-sm text-muted-foreground font-semibold">
-      Don't have an account?
-      <a href="/auth/register" class="text-primary hover:text-primary/80 duration-200">
-        Sign up
-      </a>
-    </p>
-
   </div>
-
 </div>

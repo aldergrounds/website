@@ -1,4 +1,7 @@
 <script>
+  import NavbarLandingPage from '$lib/components/layout/navbar.svelte';
+  import FooterLandingPage from '$lib/components/layout/footer.svelte';
+
   import GallerySection from "$lib/pages/landing-page/gallery.svelte";
   import PreviewServersSection from "$lib/pages/landing-page/preview-servers.svelte";
   import FeaturesSection from "$lib/pages/landing-page/features.svelte";
@@ -9,6 +12,10 @@
   import CommunitySection from "$lib/pages/landing-page/community.svelte";
   import ChangelogSection from "$lib/pages/landing-page/changelog.svelte";
 </script>
+
+<header>
+  <NavbarLandingPage/>
+</header>
 
 <main>
   <section>
@@ -47,3 +54,7 @@
     <CommunitySection />
   </section>
 </main>
+
+<footer>
+  <FooterLandingPage />
+</footer>
