@@ -1,15 +1,67 @@
+<script lang="ts">
+  import * as Form from "$lib/components/ui/form/index.js";
+  import { Input } from "$lib/components/ui/input/index.js";
+  import { formSchema, type FormSchema } from "./schema";
+  import { zod4Client } from "sveltekit-superforms/adapters";
+  import {
+    type SuperValidated,
+    type Infer,
+    superForm,
+  } from "sveltekit-superforms";
+  import { untrack } from "svelte";
+  import { HugeiconsIcon } from "@hugeicons/svelte";
+  import {
+    Alert02Icon,
+    MailAtSign02Icon,
+    ViewOffSlashIcon,
+    ViewIcon,
+    LockKeyIcon
+  } from "@hugeicons/core-free-icons";
+  import { quintOut } from "svelte/easing";
+  import { slide } from "svelte/transition";
+
+  let { data }: { data: { form: SuperValidated<Infer<FormSchema>> } } = $props();
+
+  const form = untrack(() =>
+    superForm(data.form, {
+      validators: zod4Client(formSchema),
+    })
+  );
+
+  const { form: formData, enhance, errors } = form;
+
+  let showPassword = $state(false);
+</script>
+
+{#snippet fieldError(messages: string[] | undefined)}
+  {#if messages}
+    <div
+      transition:slide={{ duration: 50, easing: quintOut }}
+      class="flex items-center justify-end text-xs text-destructive"
+    >
+      <HugeiconsIcon
+        icon={Alert02Icon}
+        size={18}
+        color="currentColor"
+        strokeWidth={1.5}
+        class="hidden"
+      />
+      <span>{messages[0]}</span>
+    </div>
+  {/if}
+{/snippet}
+
 <div class="relative min-h-screen flex">
+  <!-- Sidebar -->
   <div class="hidden lg:flex flex-col justify-between w-[420px] shrink-0 border-r border-white/10 bg-white/5 backdrop-blur-sm px-12 py-16">
     <a href="/" class="font-pricedown text-2xl text-white tracking-tighter">
       Alder<span class="bg-linear-to-r from-primary to-sky-700 bg-clip-text text-transparent">Grounds</span>
     </a>
-
     <div class="flex flex-col gap-8">
       <div class="flex flex-col gap-2">
         <p class="text-muted-foreground text-xs font-semibold uppercase tracking-widest">Multiplayer mod for</p>
         <h2 class="gta-title bg-primary text-white text-sm px-3 py-1.5 self-start">Grand Theft Auto: San Andreas.</h2>
       </div>
-
       <div class="flex flex-col gap-4">
         <div class="flex flex-col gap-1 border-l-2 border-primary pl-4">
           <span class="font-pricedown text-2xl text-white tracking-tighter">1.2K</span>
@@ -25,15 +77,14 @@
         </div>
       </div>
     </div>
-
     <p class="text-muted-foreground text-xs font-semibold">
       © {new Date().getFullYear()} AlderGrounds. Not affiliated with Rockstar Games.
     </p>
   </div>
 
+  <!-- Login Form -->
   <div class="flex flex-1 items-center justify-center px-6 py-16">
     <div class="w-full max-w-sm flex flex-col gap-0">
-
       <div class="mb-8 lg:hidden text-center">
         <h1 class="font-pricedown text-4xl tracking-tighter text-white mb-2">
           Alder<span class="bg-linear-to-r from-primary to-sky-700 bg-clip-text text-transparent">Grounds</span>
@@ -45,36 +96,88 @@
         <p class="text-muted-foreground text-sm font-semibold">Sign in to your account to continue.</p>
       </div>
 
-      <form class="flex flex-col gap-5 mb-6">
+      <form class="flex flex-col gap-5 mb-6" method="POST" use:enhance>
+        <!-- Email -->
         <div class="flex flex-col gap-2">
-          <label class="font-pricedown text-white text-sm tracking-tighter">Username</label>
-          <input
-            type="text"
-            placeholder="your_username"
-            class="bg-white/5 border border-white/10 text-white text-sm font-semibold placeholder:text-muted-foreground/50 px-4 h-10 outline-none focus:border-primary/60 duration-200 w-full"
-            style="clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%)"
-          />
+          <Form.Field {form} name="email">
+            <Form.Control>
+              {#snippet children({ props })}
+                <Form.Label class="font-pricedown text-white text-sm tracking-tighter">E-mail</Form.Label>
+                <div class="relative">
+                  <HugeiconsIcon
+                    icon={MailAtSign02Icon}
+                    size={18}
+                    color="currentColor"
+                    strokeWidth={1.5}
+                    class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none z-10"
+                  />
+
+                  <Input
+                    {...props}
+                    bind:value={$formData.email}
+                    placeholder="you@mail.com"
+                    class="h-12 w-full bg-white/5 border border-white/10 text-white text-sm font-semibold placeholder:text-muted-foreground/50 pl-12 pr-4 focus:border-primary/60 duration-200 leading-none"
+                  />
+                </div>
+              {/snippet}
+            </Form.Control>
+            {@render fieldError($errors.email)}
+          </Form.Field>
         </div>
 
+        <!-- Password -->
         <div class="flex flex-col gap-2">
-          <div class="flex items-center justify-between">
-            <label class="font-pricedown text-white text-sm tracking-tighter">Password</label>
-            <a href="/auth/forgot-password" class="text-xs text-muted-foreground hover:text-primary duration-200 font-semibold">
-              Forgot password?
-            </a>
-          </div>
-          <input
-            type="password"
-            placeholder="••••••••"
-            class="bg-white/5 border border-white/10 text-white text-sm font-semibold placeholder:text-muted-foreground/50 px-4 h-10 outline-none focus:border-primary/60 duration-200 w-full"
-            style="clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%)"
-          />
+          <Form.Field {form} name="password">
+            <Form.Control>
+              {#snippet children({ props })}
+                <div class="flex items-center justify-between">
+                  <Form.Label class="font-pricedown text-white text-sm tracking-tighter">Password</Form.Label>
+                  <a
+                    href="/auth/forgot-password"
+                    class="text-xs text-muted-foreground hover:text-primary duration-200 font-semibold"
+                  >
+                    Forgot password?
+                  </a>
+                </div>
+                <div class="relative">
+                  <HugeiconsIcon
+                    icon={LockKeyIcon}
+                    size={18}
+                    color="currentColor"
+                    strokeWidth={1.5}
+                    class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none z-10"
+                  />
+
+                  <Input
+                    {...props}
+                    type={showPassword ? "text" : "password"}
+                    bind:value={$formData.password}
+                    placeholder="••••••••"
+                    class="h-12 w-full bg-white/5 border border-white/10 text-white text-sm font-semibold placeholder:text-muted-foreground/50 pl-12 pr-4 focus:border-primary/60 duration-200 leading-none"
+                  />
+                  <button
+                    type="button"
+                    onclick={() => (showPassword = !showPassword)}
+                    class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                  >
+                    <HugeiconsIcon
+                      icon={showPassword ? ViewOffSlashIcon : ViewIcon}
+                      size={20}
+                      strokeWidth={1.5}
+                    />
+                  </button>
+                </div>
+              {/snippet}
+            </Form.Control>
+            {@render fieldError($errors.password)}
+          </Form.Field>
         </div>
 
         <button
           type="submit"
           class="mt-2 border border-primary bg-primary hover:bg-primary/80 duration-200 cursor-pointer h-10 font-pricedown text-white tracking-tighter w-full"
-          style="clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)">
+          style="clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)"
+        >
           SIGN IN
         </button>
       </form>
@@ -87,7 +190,7 @@
 
       <p class="text-center text-sm text-muted-foreground font-semibold">
         Don't have an account?
-        <a href="/auth/register" class="text-primary hover:text-primary/80 duration-200">Sign up</a>
+        <a href="/auth/signup" class="text-primary hover:text-primary/80 duration-200">Sign up</a>
       </p>
     </div>
   </div>

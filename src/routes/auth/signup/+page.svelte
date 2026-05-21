@@ -53,7 +53,7 @@
           <label class="font-pricedown text-white text-sm tracking-tighter">Username</label>
           <input
             type="text"
-            placeholder="your_username"
+            placeholder="Your username"
             class="bg-white/5 border border-white/10 text-white text-sm font-semibold placeholder:text-muted-foreground/50 px-4 h-10 outline-none focus:border-primary/60 duration-200 w-full"
             style="clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);"
           />
